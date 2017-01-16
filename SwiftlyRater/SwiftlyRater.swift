@@ -102,9 +102,14 @@ public class SwiftlyRater: NSObject {
                                                 return
                                             }
 
-                                            UIApplication.shared.open(url, options: [:], completionHandler: { (completed) in
+                                            if #available(iOS 10.0, *) {
+                                                UIApplication.shared.open(url, options: [:], completionHandler: { (completed) in
+                                                    self.lastVersionRated = self.currentVersion
+                                                })
+                                            } else {
+                                                UIApplication.shared.openURL(url)
                                                 self.lastVersionRated = self.currentVersion
-                                            })
+                                            }
                                             self.delegate?.swiftlyRaterDidTapRate()
         })
 
