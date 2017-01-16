@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
   s.homepage                = "https://github.com/gdimaggio/SwiftlyRater"
   s.license                 = { :type => "MIT", :file => "LICENSE" }
   s.author                  = { "Gianluca Di maggio" => "gdimaggio91@gmail.com" }
-  s.ios.deployment_target   = "10.0"
+  s.ios.deployment_target   = "9.3"
   
   s.source                  = { :git => "https://github.com/gdimaggio/SwiftlyRater.git", :tag => s.version }
   s.source_files            = "SwiftlyRater/*.{h,swift}", "SwiftlyRater/Reachability/*"
