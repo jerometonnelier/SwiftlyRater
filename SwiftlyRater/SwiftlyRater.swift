@@ -154,10 +154,10 @@ public class SwiftlyRater: NSObject {
      * 6) Enough signiicants Events have happened OR enough Uses
      */
     public func showPromptIfNeeded() {
-        guard SRReachabilityManager.sharedManager.isNetworkAvailable else { // 1
-            self.debugLog("Network not available, not showing prompt")
-            return
-        }
+//        guard SRReachabilityManager.sharedManager.isNetworkAvailable else { // 1
+//            self.debugLog("Network not available, not showing prompt")
+//            return
+//        }
 
         guard !self.didDeclineToRate else { // 2
             self.debugLog("User declined to rate current app version")
