@@ -159,33 +159,33 @@ public class SwiftlyRater: NSObject {
 //            return
 //        }
 
-        guard !self.didDeclineToRate else { // 2
-            self.debugLog("User declined to rate current app version")
-            return
-        }
-
-        guard !self.didRateCurrentVersion else { // 3
-            self.debugLog("Current version has been rated already")
-            return
-        }
-
-        guard !self.didRateAnyVersion || self.shouldPromptIfRated else { // 4
-            self.debugLog("One version rated already, won't ask to rate again")
-            return
-        }
-
-        if let lastReminded = self.lastReminded { // 5
-            guard  let daysElapsed = Calendar.current.dateComponents([.day], from: lastReminded, to: Date()).day,
-                daysElapsed >= self.daysBeforeReminding else {
-                    self.debugLog("Not enough days (\(self.daysBeforeReminding)) since last reminder: \(lastReminded)")
-                    return
-            }
-        }
-
-        guard self.useCount >= self.usesUntilPrompt || self.eventsCount >= self.eventsUntilPrompt else { // 6
-            self.debugLog("Uses \(self.useCount)/\(self.usesUntilPrompt), Events \(self.eventsCount)/\(self.eventsUntilPrompt)")
-            return
-        }
+//        guard !self.didDeclineToRate else { // 2
+//            self.debugLog("User declined to rate current app version")
+//            return
+//        }
+//
+//        guard !self.didRateCurrentVersion else { // 3
+//            self.debugLog("Current version has been rated already")
+//            return
+//        }
+//
+//        guard !self.didRateAnyVersion || self.shouldPromptIfRated else { // 4
+//            self.debugLog("One version rated already, won't ask to rate again")
+//            return
+//        }
+//
+//        if let lastReminded = self.lastReminded { // 5
+//            guard  let daysElapsed = Calendar.current.dateComponents([.day], from: lastReminded, to: Date()).day,
+//                daysElapsed >= self.daysBeforeReminding else {
+//                    self.debugLog("Not enough days (\(self.daysBeforeReminding)) since last reminder: \(lastReminded)")
+//                    return
+//            }
+//        }
+//
+//        guard self.useCount >= self.usesUntilPrompt || self.eventsCount >= self.eventsUntilPrompt else { // 6
+//            self.debugLog("Uses \(self.useCount)/\(self.usesUntilPrompt), Events \(self.eventsCount)/\(self.eventsUntilPrompt)")
+//            return
+//        }
 
         self.showPrompt()
     }
